@@ -11,7 +11,7 @@ def add_todo():
 
 
 st.title("Groceries App")
-st.subheader(f"This is the groceries we need to buy")
+st.subheader(f"These are the groceries we need to buy")
 st.write("This app will track our current grocery needs")
 
 
