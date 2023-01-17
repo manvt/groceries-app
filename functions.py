@@ -2,7 +2,7 @@ UFILEPATH = "groceries.txt"
 GFILEPATH = "gourmet.txt"
 
 
-def get_usual(filepath=UFILEPATH):
+def get_groceries(filepath=UFILEPATH):
     """ Reads in the text document and returns
      the list of to-do items.
      """
@@ -11,13 +11,13 @@ def get_usual(filepath=UFILEPATH):
     return todos_local
 
 
-def write_usual(todos_arg, filepath=UFILEPATH):
+def write_groceries(todos_arg, filepath=UFILEPATH):
     """ Write to-do items list in the text file."""
     with open(filepath, 'w') as file:
         file.writelines(todos_arg)
 
 
-def get_gourmet(filepath=GFILEPATH):
+def get_gourmets(filepath=GFILEPATH):
     """ Reads in the text document and returns
      the list of to-do items.
      """
@@ -26,7 +26,7 @@ def get_gourmet(filepath=GFILEPATH):
     return todos_local
 
 
-def write_gourmet(todos_arg, filepath=GFILEPATH):
+def write_gourmets(todos_arg, filepath=GFILEPATH):
     """ Write to-do items list in the text file."""
     with open(filepath, 'w') as file:
         file.writelines(todos_arg)
@@ -36,4 +36,5 @@ def write_gourmet(todos_arg, filepath=GFILEPATH):
 
 if __name__ == "__main__":
     print("This will only print when you run the functions.py file")
-    print(get_usual())
+    print(get_groceries())
+    print(get_gourmets())
