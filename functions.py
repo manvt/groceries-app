@@ -32,11 +32,6 @@ def write_gourmet(todos_arg, filepath=GFILEPATH):
         file.writelines(todos_arg)
 
 
-def strike(text):
-    result = ''
-    for c in text:
-        result = result + c + '\u0336'
-    return result
 
 
 if __name__ == "__main__":

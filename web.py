@@ -1,13 +1,6 @@
 import streamlit as st
 import functions
 
-def strike(text):
-    result = ''
-    for c in text:
-        result = result + c + '\u0336'
-    return result
-
-
 
 usuals = functions.get_usuals()
 gourmets = functions.get_gourmet()
