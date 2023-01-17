@@ -1,31 +1,61 @@
 import streamlit as st
 import functions
 
-todos = functions.get_todos()
+def strike(text):
+    result = ''
+    for c in text:
+        result = result + c + '\u0336'
+    return result
 
 
-def add_todo():
-    todo = st.session_state["new_todo"] + "\n"
-    todos.append(todo)
-    functions.write_todos(todos)
+
+usuals = functions.get_usuals()
+gourmets = functions.get_gourmet()
+
+
+def add_usual():
+    usual = st.session_state["new_usual"] + "\n"
+    usuals.append(usual)
+    functions.write_usuals(usuals)
+
+
+def add_gourmet():
+    gourmet = st.session_state["new_gourmet"] + "\n"
+    gourmets.append(gourmet)
+    functions.write_gourmet(gourmets)
 
 
 st.title("Groceries App")
 st.subheader(f"These are the groceries we need to buy")
-st.write("This app will track our current grocery needs")
+st.write("This list is our usual suspects at the store..")
+#reset = st.button("Reset", on_click=st.experimental_rerun())
 
-
-for index, todo in enumerate(todos):
-    checkbox = st.checkbox(todo, key=todo)
+for index, usual in enumerate(usuals):
+    checkbox = st.checkbox(usual, key=usual)
     if checkbox:
-        todos.pop(index)
-        functions.write_todos(todos)
-        del st.session_state[todo]
+        #usuals.pop(index)
+        functions.write_usuals(usuals)
+        del st.session_state[usual]
         st.experimental_rerun()
 
 
-st.text_input(label="New items", placeholder="Add new todo...",
-              on_change=add_todo, key='new_todo')
+st.text_input(label="New usual suspect items", placeholder="Add new usual suspect...",
+              on_change=add_usual, key='new_usual')
 
+
+st.write("This list is when we are feeling gourmet..")
+
+for index, gourmet in enumerate(gourmets):
+    checkbox = st.checkbox(gourmet, key=gourmet)
+    if checkbox:
+        gourmets.pop(index)
+        functions.write_gourmet(gourmets)
+        del st.session_state[gourmet]
+        st.experimental_rerun()
+
+
+
+st.text_input(label="New gourmet items", placeholder="Add new gourmet items here...",
+              on_change=add_gourmet, key='new_gourmet')
 
 # st.session_state
