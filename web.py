@@ -1,15 +1,22 @@
 import streamlit as st
 import functions
 
+def strike(text):
+    result = ''
+    for c in text:
+        result = result + c + '\u0336'
+    return result
 
-usuals = functions.get_usual()
+
+
+usuals = functions.get_usuals()
 gourmets = functions.get_gourmet()
 
 
 def add_usual():
     usual = st.session_state["new_usual"] + "\n"
     usuals.append(usual)
-    functions.write_usual(usuals)
+    functions.write_usuals(usuals)
 
 
 def add_gourmet():
@@ -27,7 +34,7 @@ for index, usual in enumerate(usuals):
     checkbox = st.checkbox(usual, key=usual)
     if checkbox:
         #usuals.pop(index)
-        functions.write_usual(usuals)
+        functions.write_usuals(usuals)
         del st.session_state[usual]
         st.experimental_rerun()
 
