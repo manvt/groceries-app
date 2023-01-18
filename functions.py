@@ -1,8 +1,8 @@
-UFILEPATH = "groceries.txt"
-GFILEPATH = "gourmet.txt"
+GROCERIES_FILEPATH = "groceries.txt"
+GOURMET_FILEPATH = "gourmet.txt"
 
 
-def get_groceries(filepath=UFILEPATH):
+def get_groceries(filepath=GROCERIES_FILEPATH):
     """ Reads in the text document and returns
      the list of to-do items.
      """
@@ -11,13 +11,13 @@ def get_groceries(filepath=UFILEPATH):
     return todos_local
 
 
-def write_groceries(todos_arg, filepath=UFILEPATH):
+def write_groceries(todos_arg, filepath=GROCERIES_FILEPATH):
     """ Write to-do items list in the text file."""
     with open(filepath, 'w') as file:
         file.writelines(todos_arg)
 
 
-def get_gourmets(filepath=GFILEPATH):
+def get_gourmets(filepath=GOURMET_FILEPATH):
     """ Reads in the text document and returns
      the list of to-do items.
      """
@@ -26,7 +26,7 @@ def get_gourmets(filepath=GFILEPATH):
     return todos_local
 
 
-def write_gourmets(todos_arg, filepath=GFILEPATH):
+def write_gourmets(todos_arg, filepath=GOURMET_FILEPATH):
     """ Write to-do items list in the text file."""
     with open(filepath, 'w') as file:
         file.writelines(todos_arg)
