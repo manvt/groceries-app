@@ -1,9 +1,37 @@
 import streamlit as st
-import functions
+
+GROCERIES_FILEPATH = "groceries.txt"
+GOURMET_FILEPATH = "gourmet.txt"
 
 
-groceries = functions.get_groceries()
-gourmets = functions.get_gourmets()
+def get_groceries(filepath=GROCERIES_FILEPATH):
+    """ Reads in the text document and returns
+     the list of to-do items.
+     """
+    with open(filepath, 'r') as file_local:
+        todos_local = file_local.readlines()
+    return todos_local
+
+
+def write_groceries(todos_arg, filepath=GROCERIES_FILEPATH):
+    """ Write to-do items list in the text file."""
+    with open(filepath, 'w') as file:
+        file.writelines(todos_arg)
+
+
+def get_gourmets(filepath=GOURMET_FILEPATH):
+    """ Reads in the text document and returns
+     the list of to-do items.
+     """
+    with open(filepath, 'r') as file_local:
+        todos_local = file_local.readlines()
+    return todos_local
+
+
+def write_gourmets(todos_arg, filepath=GOURMET_FILEPATH):
+    """ Write to-do items list in the text file."""
+    with open(filepath, 'w') as file:
+        file.writelines(todos_arg)
 
 
 def add_grocery():
@@ -17,6 +45,9 @@ def add_gourmet():
     gourmets.append(gourmet)
     functions.write_gourmets(gourmets)
 
+
+groceries = functions.get_groceries()
+gourmets = functions.get_gourmets()
 
 st.title("Groceries App")
 st.subheader(f"These are the groceries we need to buy")
