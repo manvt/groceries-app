@@ -37,13 +37,13 @@ def write_gourmets(todos_arg, filepath=GOURMET_FILEPATH):
 def add_grocery():
     grocery = st.session_state["new_grocery"] + "\n"
     groceries.append(grocery)
-    functions.write_groceries(groceries)
+    write_groceries(groceries)
 
 
 def add_gourmet():
     gourmet = st.session_state["new_gourmet"] + "\n"
     gourmets.append(gourmet)
-    functions.write_gourmets(gourmets)
+    write_gourmets(gourmets)
 
 
 groceries = get_groceries()
