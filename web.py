@@ -46,8 +46,8 @@ def add_gourmet():
     functions.write_gourmets(gourmets)
 
 
-groceries = functions.get_groceries()
-gourmets = functions.get_gourmets()
+groceries = get_groceries()
+gourmets = get_gourmets()
 
 st.title("Groceries App")
 st.subheader(f"These are the groceries we need to buy")
@@ -58,7 +58,7 @@ for index, grocery in enumerate(groceries):
     checkbox_grocery = st.checkbox(grocery, key=grocery)
     if checkbox_grocery:
         #usuals.pop(index)
-        functions.write_groceries(groceries)
+        write_groceries(groceries)
         del st.session_state[grocery]
         st.experimental_rerun()
 
@@ -73,7 +73,7 @@ for index, gourmet in enumerate(gourmets):
     checkbox_gourmet = st.checkbox(gourmet, key=gourmet)
     if checkbox_gourmet:
         gourmets.pop(index)
-        functions.write_gourmets(gourmets)
+        write_gourmets(gourmets)
         del st.session_state[gourmet]
         st.experimental_rerun()
 
